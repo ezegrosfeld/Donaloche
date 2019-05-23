@@ -1,0 +1,11 @@
+<form action="/proyects/add" method="POST">
+  <input type="hidden" name="id" value="{{data.id}}">
+  <input type="hidden" name="am" value="{{data.ammount}}">
+  <input type="email" name="email" value="">
+  <script
+    src="https://www.mercadopago.com.ar/integrations/v1/web-tokenize-checkout.js"
+    data-public-key="TEST-96f9265a-b2b2-4de5-9dec-8f13eb5a1701"
+    data-transaction-amount="{{data.ammount}}"
+    data-summary-product-label="Donacion para {{data.name}}">
+  </script>
+</form>

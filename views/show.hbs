@@ -1,0 +1,13 @@
+<h1>{{proyect.name}}</h1>
+<p>{{proyect.description}}</p>
+<video controls>
+  <source src="{{proyect.video}}" type="video/mp4">
+</video>
+<div class="">
+</div>
+<form action="/proyects/confirm" method="POST">
+  <input type="number" name="ammount" value="">
+  <input type="hidden" name="id" value="{{proyect.id}}">
+  <input type="hidden" name="name" value="{{proyect.name}}">
+  <input type="submit" name="" value="Donar">
+</form>
