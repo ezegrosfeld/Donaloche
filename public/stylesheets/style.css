@@ -379,7 +379,8 @@ textarea:focus{
 }
 .proyects ul{
   width: 100%;
-  margin-left: auto;
+  padding: 0;
+  list-style-type: none;
   margin-right: auto;
 }
 .img{
