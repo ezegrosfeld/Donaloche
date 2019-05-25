@@ -92,6 +92,7 @@ video{
 }
 .titulo h1{
   font-weight: bold;
+  text-transform: capitalize;
 }
 .titulo p{
   color: gray;
@@ -398,8 +399,11 @@ textarea:focus{
   color:inherit;
 }
 .proyects li:hover{
-transform: scale(1.02); 
+transform: scale(1.02);
 }
 .proyects p{
   color: gray;
+}
+.data-proj h1{
+  text-transform: capitalize;
 }
