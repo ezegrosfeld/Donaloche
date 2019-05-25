@@ -43,7 +43,7 @@ var proj = {id: ""}
 /* GET home page. */
 router.get('/', (req,res) => {
   const query = req.query;
-  Proyects.find(query)
+  Proyects.find(query).sort({updatedAt: 'desc'})
   .then(data =>{
     res.render('proyects', {proyects:data})
   })
@@ -53,6 +53,10 @@ router.get('/', (req,res) => {
       error: err.message
     })
   })
+})
+
+router.get('/guide', (req, res) => {
+  res.render('guia')
 })
 
 router.get('/new', (req, res) => {
@@ -97,12 +101,12 @@ router.post('/add', (req, res) => {
   var i = parseInt(payment.installments)
   payment.installments = i
 
-  mercadopago.configurations.setAccessToken('TEST-4867163097281958-052115-ef5efe862e89f2208bd689918fdc0a27-362516243');
+  mercadopago.configurations.setAccessToken(process.env.ACCESS_TOKEN);
 
   const id = req.body.id
 
   mercadopago.payment.save(payment).then(function (data) {
-    Proyects.findByIdAndUpdate(id, {$inc:{money: +payment.transaction_amount}}, {new:true})
+    Proyects.findByIdAndUpdate(id, {$inc:{money: +payment.transaction_amount, donations: +1}}, {new:true})
     .then(data =>{
       res.json({data:data})
     })
@@ -123,7 +127,8 @@ router.get('/:id', (req, res) => {
 
   Proyects.findById(id)
   .then(data => {
-    res.render('show', {proyect: data})
+    var percent = parseInt((data.money * 100) / data.aim);
+    res.render('show', {proyect: data, percent:percent})
   })
   .catch(err => {
     res.json({

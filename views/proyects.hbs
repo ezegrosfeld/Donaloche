@@ -1,3 +1,23 @@
-{{# each proyects}}
-<a href="/proyects/{{this.id}}"><h1>{{this.name}}</h1></a>
-{{/each}}
+
+  <div class="proyects">
+    <div class="list">
+      <ul>
+        {{# each proyects}}
+        {{#if this.validation}}
+        <li>
+          <a href="/proyects/{{this.id}}">
+            <div class="img">
+              <img src="{{this.photo}}" alt="">
+            </div>
+            <div class="data-proj">
+              <h1>{{this.name}}</h1>
+              <p>{{this.description}}</p>
+              <h5>${{this.money}}<span> / ${{this.aim}}</span></h5>
+            </div>
+        </a>
+        </li>
+          {{/if}}
+          {{/each}}
+      </ul>
+    </div>
+  </div>

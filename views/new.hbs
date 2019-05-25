@@ -1,12 +1,79 @@
+<div class="presentacion">
+  <h1>Presentar Proyecto</h1>
+  <p>Complete todos los campos. Las descripciones deben estar bien completas</p>
+</div>
 <div class="form">
   <form class="" action="/proyects/addproyect" method="post">
-    <input type="text" name="uname" value=""><br>
-    <input type="number" name="udni" value=""><br>
-    <input type="email" name="email" value=""><br>
-    <input type="number" name="phone" value=""><br>
-    <input type="text" name="name" value=""><br>
-    <input type="text" name="description" value=""><br>
-    <input type="number" name="aim" value=""><br>
-    <input type="submit" name="" value="Enviar">
+    <div class="header-personal">
+      <h2>Informacion Personal  <i class="fas fa-angle-down"></i></h2>
+    </div>
+    <div class="personal">
+      <div class="form-data">
+        <div class="header">
+          <h3>Nombre y Apellido</h3>
+        </div>
+        <input type="text" name="uname" value="" required><br>
+      </div>
+      <div class="form-data">
+        <div class="header">
+          <h3>DNI</h3>
+        </div>
+        <input type="number" name="udni" value="" required><br>
+      </div>
+      <div class="form-data">
+        <div class="header">
+          <h3>Email</h3>
+        </div>
+        <input type="email" name="email" value="" required><br>
+      </div>
+      <div class="form-data">
+        <div class="header">
+          <h3>Telefono</h3>
+        </div>
+        <input type="number" name="phone" value="" required><br>
+      </div>
+    </div>
+    <div class="header-proyect" style="background-color: #64da65">
+      <h2>Informacion del proyecto  <i class="fas fa-angle-down"></i></h2>
+    </div>
+    <div class="proyect-data">
+      <div class="form-data">
+        <div class="header">
+          <h3>Nombre del Proyecto</h3>
+        </div>
+        <input type="text" name="name" value="" required><br>
+      </div>
+      <div class="form-data">
+        <div class="header">
+          <h3>Breve Descripción</h3>
+        </div>
+        <input type="text" name="description" value="" required><br>
+      </div>
+      <div class="form-data">
+        <div class="header">
+          <h3>Dinero que necesita</h3>
+        </div>
+        <input type="number" name="aim" value="" required><br>
+      </div>
+      <div class="form-data">
+        <div class="header">
+          <h3>Descripción del problema/razón del proyecto</h3>
+        </div>
+        <textarea name="problem" value="" required oninput='this.style.height = "";this.style.height = this.scrollHeight + 6 + "px"'></textarea><br>
+      </div>
+      <div class="form-data">
+        <div class="header">
+          <h3>Descripcion de lo que hara con el dinero</h3>
+        </div>
+        <textarea name="use" value="" required oninput='this.style.height = "";this.style.height = this.scrollHeight + 6 + "px"'></textarea><br>
+      </div>
+      <div class="form-data">
+        <div class="header">
+          <h3>Descripcion de usted y relacion con el proyecto</h3>
+        </div>
+        <textarea name="user" value="" required oninput='this.style.height = "";this.style.height = this.scrollHeight + 6 + "px"'></textarea><br>
+      </div>
+      <input type="submit" name="" value="Enviar" class="btn">
+    </div>
   </form>
 </div>

@@ -5,10 +5,8 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
+router.get('/contacto', (req,res,next) => {
+  res.render('contacto')
+})
+
 module.exports = router;
-
-
-
-// AKIA4FN572T6DEEIFHQT
-//
-// vQFdAfrZrzyGnNr/WSIqP0+a5j4UVBqMmZEVDzog

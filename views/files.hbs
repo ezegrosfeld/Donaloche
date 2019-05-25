@@ -1,6 +1,25 @@
-<form class="" action="/proyects/upload" method="post" enctype="multipart/form-data">
-  <input type="hidden" name="id" value="{{id}}">
-  <input type="file" name="upl" value="">
-  <input type="file" name="upl" value="">
-  <input type="submit" name="" value="Enviar Video">
-</form>
+<div class="presentacion">
+  <h1>Hora de subir los archivos!</h1>
+  <p>Recuerda que la foto y el video son obligatorios</p>
+  <p>Los archivos pueden tardar varios minutos en subirse, ten paciencia!</p>
+</div>
+<div class="files">
+  <form class="" action="/proyects/upload" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="{{id}}">
+    <div class="header-file">
+      <h2>VIDEO &darr;</h2>
+    </div>
+    <div class="file">
+      <input type="file" name="upl" value="">
+    </div>
+    <br>
+    <div class="header-file">
+      <h2>FOTO &darr;</h2>
+    </div>
+    <div class="file">
+      <input type="file" name="upl" value="">
+    </div>
+    <br>
+    <input type="submit" name="" value="Enviar" class="btn" style="width: 100%; margin-top:10px;">
+  </form>
+</div>

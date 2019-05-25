@@ -1,13 +1,95 @@
-<h1>{{proyect.name}}</h1>
-<p>{{proyect.description}}</p>
-<video controls>
-  <source src="{{proyect.video}}" type="video/mp4">
-</video>
-<div class="">
+<div class="container">
+  <div class="proyect">
+    <div class="titulo">
+      <h1>{{proyect.name}}</h1>
+      <p>{{proyect.description}}</p>
+    </div>
+    <div class="video">
+      <video controls>
+        <source src="{{proyect.video}}" type="video/mp4">
+      </video>
+      <div class="donar-chart">
+        <div class="current-money">
+          <span>$ {{proyect.money}}</span>
+        </div>
+        <div class="aim">
+          <p>donado de ${{proyect.aim}}</p>
+        </div>
+        <div class="prj-rest">
+          <span>{{proyect.donations}}</span>
+        </div>
+        <div class="aim">
+          <p>donadores</p>
+        </div>
+        <div class="prj-rest">
+          <span id="percent">{{percent}} %</span>
+        </div>
+        <div class="aim">
+          <p>del proyecto completado</p>
+        </div>    
+        <form action="/proyects/confirm" method="POST">
+          <div class="price">
+            <div class="symbol">
+              <span>$</span>
+            </div>
+            <input type="number" name="ammount" value="" required placeholder="+ 20">
+          </div>
+          <input type="hidden" name="id" value="{{proyect.id}}">
+          <input type="hidden" name="name" value="{{proyect.name}}">
+          <input type="submit" name="" value="Donar" class="btn">
+        </form>
+      </div>
+      <div class="chart">
+        <div class="data">
+          <div class="current-money">
+            <span>$ {{proyect.money}}</span>
+            <div class="aim">
+              <p>donado de ${{proyect.aim}}</p>
+            </div>
+          </div>
+
+          <div class="prj-rest">
+            <span>{{proyect.donations}}</span>
+            <div class="aim">
+              <p>donadores</p>
+            </div>
+          </div>
+
+          <div class="prj-rest">
+            <span id="percent">{{percent}} %</span>
+            <div class="aim">
+              <p>completado</p>
+            </div>
+          </div>
+
+        </div>
+        <form action="/proyects/confirm" method="POST">
+          <div class="price">
+            <div class="symbol">
+              <span>$</span>
+            </div>
+            <input type="number" name="ammount" value="" placeholder="+ 20" required>
+          </div>
+          <input type="hidden" name="id" value="{{proyect.id}}">
+          <input type="hidden" name="name" value="{{proyect.name}}">
+          <br><input type="submit" name="" value="Donar" class="btn">
+        </form>
+      </div>
+    </div>
+    <div class="descripcion">
+      <div class="razon">
+        <h3>Descripción del proyecto:</h3>
+        <p>{{proyect.problem}}</p>
+      </div>
+      <div class="usos">
+        <h3>¿Qué se hará con el dinero?</h3>
+        <p>{{proyect.use}}</p>
+      </div>
+      <div class="persona">
+        <h3>Sobre el solicitante:</h3>
+        <p>{{proyect.user}}</p>
+      </div>
+    </div>
+    <a href="#" class="btn-btn">Donar</a>
+  </div>
 </div>
-<form action="/proyects/confirm" method="POST">
-  <input type="number" name="ammount" value="">
-  <input type="hidden" name="id" value="{{proyect.id}}">
-  <input type="hidden" name="name" value="{{proyect.name}}">
-  <input type="submit" name="" value="Donar">
-</form>

@@ -5,8 +5,12 @@
     <meta charset="utf-8">
 
     <!-- Links -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+
     <title></title>
   </head>
   <body>
@@ -22,10 +26,121 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
+
+    <script type="text/javascript">
+      if($(window).innerWidth() < 1200){
+        $('.video').css('display', 'block');
+        $('video').css('width', '100%');
+        $('.chart').css('margin-left', '0');
+        $('.donar-chart').css('display', 'none');
+        $('.chart').css('display', 'block');
+      };
+      if ($('.price input').val() <= 19){
+        $('.btn').addClass('disabled')
+      }
+      $('input').on('keyup', function(){
+        if ($('.price input').val() <= 19){
+          $('.btn').addClass('disabled')
+
+        }else if ($('.price input').val() > 20){
+          $('.btn.disabled').removeClass('disabled')
+
+        }
+      });
+      $('input').on('keyup', function(){
+        if ($('.chart .price input').val() <= 19){
+          $('.chart .btn').addClass('disabled')
+
+        }else if ($('.chart .price input').val() > 20){
+          $('.chart .btn.disabled').removeClass('disabled')
+
+        }
+      });
+      $('button.mercadopago-button').addClass('disabled')
+
+      $('#payment').on('keyup', function(){
+        var input=$('#payment');
+  	    var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  	    var is_email=re.test(input.val());
+        if(is_email){
+          $('button.mercadopago-button').removeClass('disabled')
+
+        }else {
+          $('button.mercadopago-button').addClass('disabled')
+
+
+        }
+      })
+    </script>
+    <script type="text/javascript">
+      $('.header-personal').on('click', function() {
+        $('.personal').show('slow');
+      });
+      $('.header-proyect').on('click', function() {
+        $('.proyect-data').show('slow');
+      });
+      $(function(){
+        $('.header-personal').on('click', function(){
+          $('html, body').animate({scrollTop: $('.header-personal').offset().top-10}, 2000)
+          $('input[name="uname"]').focus()
+        })
+      });
+      $(function(){
+        $('.header-proyect').on('click', function(){
+          $('html, body').animate({scrollTop: $('.header-proyect').offset().top-10}, 2000)
+          $('input[name="name"]').focus()
+        })
+      });
+      $(function() {
+    $('form input, form textarea').on('keyup', function() {
+
+        var empty = false;
+        $('form input, form textarea').each(function() {
+            if ($(this).val() == '') {
+                empty = true;
+            }
+        });
+
+        if (empty) {
+            // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
+        } else {
+            $('.proyect-data .btn').show()
+            $('.proyect-data .btn').removeAttr('disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
+        }
+    });
+  });
+  $('.header-file').on('click', function() {
+    $('.file').show('slow');
+    $('html, body').animate({scrollTop: $('.header-file').offset().top-10}, 2000)
+  });
+  $('.header#h1').on('click', function(){
+    $('.data#data1').toggle()
+    $('.header#h1 i.fa-angle-down').toggle()
+    $('.header#h1 i.fa-angle-up').toggle()
+    $('html, body').animate({scrollTop: $('.header#h1').offset().top-10}, 2000)
+  })
+  $('.header#h2').on('click', function(){
+    $('.data#data2').toggle()
+    $('.header#h2 i.fa-angle-down').toggle()
+    $('.header#h2 i.fa-angle-up').toggle()
+    $('html, body').animate({scrollTop: $('.header#h2').offset().top-10}, 2000)
+  })
+  $('.header#h3').on('click', function(){
+    $('.data#data3').toggle()
+    $('.header#h3 i.fa-angle-down').toggle()
+    $('.header#h3 i.fa-angle-up').toggle()
+    $('html, body').animate({scrollTop: $('.header#h3').offset().top-10}, 2000)
+  })
+  $('.btn-btn').on('click', function(){
+    $('html, body').animate({scrollTop: $('.video').offset().top-100}, 2000)
+  })
+    </script>
     <script type="text/javascript">
           $('a').removeClass('active');
           $('a[href="' + location.pathname + '"]').addClass('active');
         </script>
+
   </body>
 </html>
