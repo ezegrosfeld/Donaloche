@@ -14,6 +14,8 @@
     <title></title>
   </head>
   <body>
+    <div class="preload">
+    </div>
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
       {{>navbar}}
 
@@ -30,12 +32,19 @@
 
 
     <script type="text/javascript">
+    $(window).on('load', function() {
+		// Animate loader off screen
+		$(".preload").fadeOut("slow");
+	   });
+    </script>
+    <script type="text/javascript">
       if($(window).innerWidth() < 1200){
         $('.video').css('display', 'block');
         $('video').css('width', '100%');
         $('.chart').css('margin-left', '0');
         $('.donar-chart').css('display', 'none');
         $('.chart').css('display', 'block');
+        $('.proyects ul').css('margin-left', '-90px;');
       };
       if ($('.price input').val() <= 19){
         $('.btn').addClass('disabled')
