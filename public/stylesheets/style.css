@@ -93,9 +93,6 @@ video{
 .titulo h1{
   font-weight: bold;
 }
-.proyect .titulo h1{
-  text-transform: capitalize;
-}
 .titulo p{
   color: gray;
 }
@@ -323,7 +320,7 @@ textarea:focus{
 }
 .btn-btn{
   border-radius: 5px;
-  padding: 1%;
+  padding: 10px;
   color: #fff;
   background-color: #212529;
   font-weight: bolder;
@@ -409,9 +406,6 @@ transform: scale(1.02);
 }
 .proyects p{
   color: gray;
-}
-.data-proj h1{
-  text-transform: capitalize;
 }
 .preload{
   position: fixed;

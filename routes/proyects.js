@@ -177,7 +177,7 @@ router.get('/:id', (req, res) => {
   Proyects.findById(id)
   .then(data => {
     var percent = parseInt((data.money * 100) / data.aim);
-    res.render('show', {proyect: data, percent:percent, title:data.name})
+    res.render('show', {proyect: data, percent:percent, title:data.name, description:data.description})
   })
   .catch(err => {
     res.json({

@@ -18,7 +18,11 @@
       <title>Donaloche</title>
     {{/if}}
 
-    <meta name=”description” content="Plataforma de financiamiento de proyectos sociales con donaciones. Busca proyectos sociales en tu cuidad o subí el tuyo y financialo facilmente!"/>
+    {{#if description}}
+    <meta name="description" content="{{description}}" />
+    {{else}}
+      <meta name=”description” content="Plataforma de financiamiento de proyectos sociales con donaciones. Busca proyectos sociales en tu cuidad o subí el tuyo y financialo facilmente!"/>
+    {{/if}}
 
   </head>
   <body>
