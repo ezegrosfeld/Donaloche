@@ -7,6 +7,9 @@ const multer = require('multer');
 const multerS3 = require('multer-s3');
 const aws = require('aws-sdk');
 const Proyects = require('../models/Proyecto')
+var nodeMailer = require('nodemailer');
+
+
 
 dotenv.config();
 
@@ -68,6 +71,52 @@ router.post('/addproyect', (req, res) => {
   var model = new Proyects(data);
   model.save();
   const id = model.id;
+  let transporter = nodeMailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: {
+          // should be replaced with real sender's account
+          user: process.env.EMAIL,
+          pass: process.env.PASS
+      }
+  });
+  let mailOptions = {
+      // should be replaced with real recipient's account
+      from:'donaloche@gmail.com',
+      to: model.email,
+      subject: 'Proyecto en Donaloche',
+      text: 'Su proyecto ha sido subido con exito, pronto nos comunicaremos con usted para continuar con el proceso. Muchas gracias.'
+  };
+  transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+          return console.log(error);
+      }
+      console.log('Message %s sent: %s', info.messageId, info.response);
+  });
+  let transporter1 = nodeMailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: {
+          // should be replaced with real sender's account
+          user: process.env.EMAIL,
+          pass: process.env.PASS
+      }
+  });
+  let mailOptions1 = {
+      // should be replaced with real recipient's account
+      from:'donaloche@gmail.com',
+      to: 'donaloche@gmail.com',
+      subject: 'Nuevo proyecto',
+      text: 'Se ha subido un nuevo proyecto a la página, https://donaloche.herokuapp.com/proyects/' + model.id + '. Su email: ' + model.email + '. Su telefono ' + model.phone
+  };
+  transporter1.sendMail(mailOptions1, (error, info) => {
+      if (error) {
+          return console.log(error);
+      }
+      console.log('Message %s sent: %s', info.messageId, info.response);
+  });
   res.render('files',{id:id})
 })
 

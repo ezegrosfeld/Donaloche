@@ -38,6 +38,11 @@
 	   });
     </script>
     <script type="text/javascript">
+      $('.btn#files').on('click', function(){
+        $('.video-preload').show();
+      })
+    </script>
+    <script type="text/javascript">
       if($(window).innerWidth() < 1200){
         $('.video').css('display', 'block');
         $('video').css('width', '100%');
