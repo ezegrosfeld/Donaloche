@@ -305,7 +305,7 @@ textarea:focus{
   border-bottom: inherit
 }
 .descripcion{
-  text-align: justify;
+  text-align: left;
 }
 .descripcion p{
   line-height: 2.5;
@@ -344,7 +344,7 @@ textarea:focus{
   background-color: #5ea75f;
 }
 .data{
-  text-align: justify;
+  text-align: left;
 }
 .header:hover{
   cursor: pointer;

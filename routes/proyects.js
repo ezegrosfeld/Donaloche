@@ -109,7 +109,7 @@ router.post('/addproyect', (req, res) => {
       from:'donaloche@gmail.com',
       to: 'donaloche@gmail.com',
       subject: 'Nuevo proyecto',
-      text: 'Se ha subido un nuevo proyecto a la página, https://donaloche.herokuapp.com/proyects/' + model.id + '. Su email: ' + model.email + '. Su telefono ' + model.phone
+      text: 'Se ha subido un nuevo proyecto a la página, https://donaloche.herokuapp.com/proyects/' + model.id + ' Su email: ' + model.email + ' Su telefono ' + model.phone + ' Su nombre: ' + model.uname
   };
   transporter1.sendMail(mailOptions1, (error, info) => {
       if (error) {

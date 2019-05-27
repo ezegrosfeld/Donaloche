@@ -45,9 +45,9 @@
       </div>
       <div class="form-data">
         <div class="header">
-          <h3>Breve Descripción</h3>
+          <h3>Breve Descripción (máx 110 caracteres)</h3>
         </div>
-        <input type="text" name="description" value="" required><br>
+        <input type="text" name="description" value="" required maxlength="110"><br>
       </div>
       <div class="form-data">
         <div class="header">
@@ -57,21 +57,21 @@
       </div>
       <div class="form-data">
         <div class="header">
-          <h3>Descripción del problema/razón del proyecto</h3>
+          <h3>Descripción del problema/razón del proyecto (min 120 caracteres)</h3>
         </div>
-        <textarea name="problem" value="" required oninput='this.style.height = "";this.style.height = this.scrollHeight + 6 + "px"'></textarea><br>
+        <textarea name="problem" value="" required minlength="120" oninput='this.style.height = "";this.style.height = this.scrollHeight + 6 + "px"'></textarea><br>
       </div>
       <div class="form-data">
         <div class="header">
-          <h3>Descripcion de lo que hara con el dinero</h3>
+          <h3>Descripcion de lo que hara con el dinero (min 120 caracteres)</h3>
         </div>
-        <textarea name="use" value="" required oninput='this.style.height = "";this.style.height = this.scrollHeight + 6 + "px"'></textarea><br>
+        <textarea name="use" value="" required minlength="120" oninput='this.style.height = "";this.style.height = this.scrollHeight + 6 + "px"'></textarea><br>
       </div>
       <div class="form-data">
         <div class="header">
-          <h3>¿Por qué realiza este proyecto? - Razón por la cual usted/es realizan el proyecto</h3>
+          <h3>¿Por qué realiza este proyecto? - Razón por la cual usted/es realizan el proyecto (min 120 caracteres)</h3>
         </div>
-        <textarea name="user" value="" required oninput='this.style.height = "";this.style.height = this.scrollHeight + 6 + "px"'></textarea><br>
+        <textarea name="user" value="" required minlength="120" oninput='this.style.height = "";this.style.height = this.scrollHeight + 6 + "px"'></textarea><br>
       </div>
       <input type="submit" name="" value="Enviar" class="btn">
     </div>
