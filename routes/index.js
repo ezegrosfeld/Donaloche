@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/contacto', (req,res,next) => {
-  res.render('contacto')
+  res.render('contacto', {title: 'Contacto'})
 })
 
 router.post('/email', (req,res) => {

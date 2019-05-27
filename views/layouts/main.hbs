@@ -3,6 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta charset="utf-8">
+    <link rel="shortcut icon" type="ico" href="https://s3-sa-east-1.amazonaws.com/donaloche/Templates/dona.png">
 
     <!-- Links -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -11,7 +12,14 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 
-    <title></title>
+    {{#if title}}
+    <title>{{title}} | Donaloche</title>
+    {{else}}
+      <title>Donaloche</title>
+    {{/if}}
+
+    <meta name=”description” content="Plataforma de financiamiento de proyectos sociales con donaciones. Busca proyectos sociales en tu cuidad o subí el tuyo y financialo facilmente!"/>
+
   </head>
   <body>
     <div class="preload">

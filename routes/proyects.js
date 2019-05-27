@@ -48,7 +48,7 @@ router.get('/', (req,res) => {
   const query = req.query;
   Proyects.find(query).sort({updatedAt: 'desc'})
   .then(data =>{
-    res.render('proyects', {proyects:data})
+    res.render('proyects', {proyects:data, title:'Proyectos'})
   })
   .catch(err => {
     res.json({
@@ -59,11 +59,11 @@ router.get('/', (req,res) => {
 })
 
 router.get('/guide', (req, res) => {
-  res.render('guia')
+  res.render('guia', {title: 'Guía'})
 })
 
 router.get('/new', (req, res) => {
-  res.render('new')
+  res.render('new',{title: 'Nuevo Proyecto'})
 })
 
 router.post('/addproyect', (req, res) => {
@@ -117,7 +117,7 @@ router.post('/addproyect', (req, res) => {
       }
       console.log('Message %s sent: %s', info.messageId, info.response);
   });
-  res.render('files',{id:id})
+  res.render('files',{id:id, title:'Nuevo Proyecto'})
 })
 
 router.post('/confirm', (req, res) => {
@@ -157,7 +157,7 @@ router.post('/add', (req, res) => {
   mercadopago.payment.save(payment).then(function (data) {
     Proyects.findByIdAndUpdate(id, {$inc:{money: +payment.transaction_amount, donations: +1}}, {new:true})
     .then(data =>{
-      res.json({data:data})
+      res.render('success1', {data:data})
     })
     .catch(err =>{
       res.json({message:"Algo fallo, Nuestros desarrolladores han sido notificados. Intentelo de nuevo más tarde"})
@@ -177,7 +177,7 @@ router.get('/:id', (req, res) => {
   Proyects.findById(id)
   .then(data => {
     var percent = parseInt((data.money * 100) / data.aim);
-    res.render('show', {proyect: data, percent:percent})
+    res.render('show', {proyect: data, percent:percent, title:data.name})
   })
   .catch(err => {
     res.json({
@@ -192,7 +192,7 @@ router.post('/upload', upload.array('upl',2), (req, res, next) => {
   const id = req.body.id;
   Proyects.findByIdAndUpdate(id, {video:req.files[0].location, photo:req.files[1].location}, {new:true})
   .then(data =>{
-    res.json({data:data})
+    res.render('success')
   })
   .catch(err =>{
     res.json({message:"Algo fallo, Nuestros desarrolladores han sido notificados. Intentelo de nuevo más tarde"})
