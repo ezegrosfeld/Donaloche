@@ -157,6 +157,31 @@ router.post('/add', (req, res) => {
   mercadopago.payment.save(payment).then(function (data) {
     Proyects.findByIdAndUpdate(id, {$inc:{money: +payment.transaction_amount, donations: +1}}, {new:true})
     .then(data =>{
+      if(data.money >= data.aim){
+        let transporter = nodeMailer.createTransport({
+            host: 'smtp.gmail.com',
+            port: 465,
+            secure: true,
+            auth: {
+                // should be replaced with real sender's account
+                user: process.env.EMAIL,
+                pass: process.env.PASS
+            }
+        });
+        let mailOptions = {
+            // should be replaced with real recipient's account
+            from:data.email,
+            to: 'donaloche@gmail.com',
+            subject: 'Proyecto Completo',
+            text: 'El siguiente proyecto ha conseguido su objetivo: https://donaloche.herokuapp.com/proyects/' + data.id
+        };
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                return console.log(error);
+            }
+            console.log('Message %s sent: %s', info.messageId, info.response);
+        });
+      };
       res.render('success1', {data:data})
     })
     .catch(err =>{
@@ -196,6 +221,19 @@ router.post('/upload', upload.array('upl',2), (req, res, next) => {
   })
   .catch(err =>{
     res.json({message:"Algo fallo, Nuestros desarrolladores han sido notificados. Intentelo de nuevo más tarde"})
+  })
+});
+
+router.post('/approve', (req,res) => {
+  const id = req.body.id;
+  const aim = parseInt(req.body.aim);
+  const total = parseInt(aim+(aim*0.045))
+  Proyects.findByIdAndUpdate(id, {validation: true, aim:total}, {new:true})
+  .then(data =>{
+    res.json({data: data})
+  })
+  .catch(err =>{
+    res.json({message:err})
   })
 });
 

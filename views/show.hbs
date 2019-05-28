@@ -91,5 +91,14 @@
       </div>
     </div>
     <a href="#" class="btn-btn">Donar</a>
+    {{#unless proyect.validation}}
+    <div class="">
+      <form class="" action="/proyects/approve" method="post">
+        <input type="number" name="aim" value="{{proyect.aim}}">
+        <input type="hidden" name="id" value="{{proyect.id}}">
+        <input type="submit" name="" value="Aprobar">
+      </form>
+    </div>
+    {{/unless}}
   </div>
 </div>
