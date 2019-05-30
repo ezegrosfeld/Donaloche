@@ -46,9 +46,14 @@ var proj = {id: ""}
 /* GET home page. */
 router.get('/', (req,res) => {
   const query = req.query;
+  if(query.category){
+    var title = query.category
+  } else{
+    var title = 'Proyectos'
+  }
   Proyects.find(query).sort({updatedAt: 'desc'})
   .then(data =>{
-    res.render('proyects', {proyects:data, title:'Proyectos'})
+    res.render('proyects', {proyects:data, title:title})
   })
   .catch(err => {
     res.json({
@@ -122,7 +127,7 @@ router.post('/addproyect', (req, res) => {
 
 router.post('/confirm', (req, res) => {
   const data = req.body;
-  res.render('pay', {data: data});
+  res.render('pay', {data: data, title:'Donar'});
 });
 
 router.post('/add', (req, res) => {

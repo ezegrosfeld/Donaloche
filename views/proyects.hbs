@@ -11,12 +11,21 @@
             </div>
             <div class="data-proj">
               <h1>{{this.name}}</h1>
+              <h6>{{this.category}}</h6>
               <p>{{this.description}}</p>
               <h5>${{this.money}}<span> / ${{this.aim}}</span></h5>
             </div>
         </a>
         </li>
           {{/if}}
+          {{else}}
+          <div class="container">
+            <div class="bienvenidos">
+              <h1 class="bnv">Todavía no hay proyectos</h1><br>
+              <p class="bnv">Se el primero en subir tu proyecto social</p><br>
+              <a href="/proyects/guide" class="btn" style="color:#fff">Subir Proyecto</a>
+            </div>
+          </div>
           {{/each}}
       </ul>
     </div>

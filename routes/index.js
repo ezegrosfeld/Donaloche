@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const dotenv = require('dotenv');
 var nodeMailer = require('nodemailer');
+const Donantes = require('../models/Donantes')
 
 router.get('/', function(req, res, next) {
   res.render('index');
@@ -9,6 +10,30 @@ router.get('/', function(req, res, next) {
 
 router.get('/contacto', (req,res,next) => {
   res.render('contacto', {title: 'Contacto'})
+})
+
+router.get('/donar', (req, res) => {
+  var query = req.query;
+  Donantes.find(query).sort({updatedAt: 'desc'})
+  .then(data => {
+    res.render('donar', {title:'Donar a Donaloche', data:data})
+  })
+  .catch(err => {
+    res.json({
+      confirmation: 'error',
+      message : err.message
+    })
+  })
+})
+router.get('/registro', (req, res) => {
+  res.render('registro', {title:'Registrar'})
+})
+
+router.post('/adddonator', (req, res) => {
+  var data = req.body;
+  var model = new Donantes(data);
+  model.save();
+  res.redirect('/donar')
 })
 
 router.post('/email', (req,res) => {

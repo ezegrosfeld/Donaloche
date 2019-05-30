@@ -428,3 +428,16 @@ transform: scale(1.02);
   	background: url("https://s3-sa-east-1.amazonaws.com/donaloche/Templates/send-files.png") center no-repeat #fff;
     background-size: 305px 172px;
 }
+footer h5{
+  color: #4eff50;
+  font-weight: bold;
+}
+footer{
+  margin-top: 20px;
+}
+select{
+  width: 90%;
+    border-radius: 5px;
+    padding: 2%;
+    background-color: transparent;
+}

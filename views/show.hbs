@@ -32,7 +32,7 @@
             <div class="symbol">
               <span>$</span>
             </div>
-            <input type="number" name="ammount" value="" required placeholder="+ 20">
+            <input type="number" name="ammount" value="" required placeholder="> 20">
           </div>
           <input type="hidden" name="id" value="{{proyect.id}}">
           <input type="hidden" name="name" value="{{proyect.name}}">
@@ -40,6 +40,7 @@
         </form>
       </div>
       <div class="chart">
+        <hr>
         <div class="data">
           <div class="current-money">
             <span>$ {{proyect.money}}</span>
@@ -68,7 +69,7 @@
             <div class="symbol">
               <span>$</span>
             </div>
-            <input type="number" name="ammount" value="" placeholder="+ 20" required>
+            <input type="number" name="ammount" value="" placeholder="> 20" required>
           </div>
           <input type="hidden" name="id" value="{{proyect.id}}">
           <input type="hidden" name="name" value="{{proyect.name}}">
@@ -78,18 +79,24 @@
     </div>
     <div class="descripcion">
       <div class="razon">
-        <h3>Descripción del proyecto:</h3>
+        <h3>{{proyect.title}}</h3>
         <p>{{proyect.problem}}</p>
       </div>
       <div class="usos">
-        <h3>¿Qué se hará con el dinero?</h3>
+        <h3>{{proyect.secondtitle}}</h3>
         <p>{{proyect.use}}</p>
       </div>
       <div class="persona">
-        <h3>¿Por qué realizamos este proyecto?</h3>
+        <h3>{{proyect.thirdtitle}}</h3>
         <p>{{proyect.user}}</p>
       </div>
     </div>
+    <p>Compartir:<br><br><a href="http://www.facebook.com/sharer.php?u=http://donaloche.herokuapp.com/proyects/{{proyect.id}}" target="_blank">
+      <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+  </a>
+  <a href="https://twitter.com/share?url=http://donaloche.herokuapp.com/proyects/{{proyect.id}}" target="_blank">
+      <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+  </a></p><br>
     <a href="#" class="btn-btn">Donar</a>
     {{#unless proyect.validation}}
     <div class="">
