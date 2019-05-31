@@ -2,7 +2,7 @@ body{
   font-family: 'Montserrat', sans-serif;
 }
 body h1, h2, h3, h4{
-  font-family: 'Quicksand','Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 a{
   outline: none !important;
@@ -129,6 +129,7 @@ video{
   display: none;
   text-align: center;
   margin-top: 10px;
+  overflow: auto;
 }
 .chart .data{
   display: -webkit-inline-box;
@@ -152,6 +153,7 @@ video{
   color: #4eff50;
 }
 .chart .btn{
+  top:0;
   width: 100%;
   margin-top: 10px;
 }
@@ -326,8 +328,8 @@ textarea:focus{
   font-weight: bolder;
 }
 .header{
-  padding-top: 2%;
-  padding-bottom: 2%;
+  border-radius: 10px;
+  padding: 2%;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -440,4 +442,27 @@ select{
     border-radius: 5px;
     padding: 2%;
     background-color: transparent;
+}
+#donar{
+  position: absolute;
+  font-size:7pt;
+  right: 6px;
+}
+.about-text{
+  max-width: 800px;
+  margin-top: 20px;
+  text-align: left;
+}
+.about-text h3{
+  font-weight: 500;
+}
+.about-text p{
+  color:#646769;
+}
+.about h1{
+  font-weight: bolder;
+color: #28a745;
+}
+.links{
+  padding: 2%;
 }

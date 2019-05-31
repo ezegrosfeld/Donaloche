@@ -29,6 +29,10 @@ router.get('/registro', (req, res) => {
   res.render('registro', {title:'Registrar'})
 })
 
+router.get('/story',(req, res) => {
+  res.render('story', {title:"Nosotros"})
+})
+
 router.post('/adddonator', (req, res) => {
   var data = req.body;
   var model = new Donantes(data);
