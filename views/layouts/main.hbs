@@ -64,6 +64,8 @@
     </script>
     <script type="text/javascript">
       if($(window).innerWidth() < 1200){
+        $('iframe').css('width', 'inherit');
+        $('iframe').css('height', 'inherit');
         $('.video').css('display', 'block');
         $('video').css('width', '100%');
         $('.chart').css('margin-left', '0');
@@ -175,6 +177,7 @@
           $('a').removeClass('active');
           $('a[href="' + location.pathname + '"]').addClass('active');
         </script>
+
 
   </body>
 </html>

@@ -1,4 +1,4 @@
-var express = require('express');
+  var express = require('express');
 const dotenv = require('dotenv')
 var router = express.Router();
 var mercadopago = require('mercadopago')
@@ -218,9 +218,9 @@ router.get('/:id', (req, res) => {
 
 });
 
-router.post('/upload', upload.array('upl',2), (req, res, next) => {
+router.post('/upload', upload.array('upl',1), (req, res, next) => {
   const id = req.body.id;
-  Proyects.findByIdAndUpdate(id, {video:req.files[0].location, photo:req.files[1].location}, {new:true})
+  Proyects.findByIdAndUpdate(id, {photo:req.files[0].location}, {new:true})
   .then(data =>{
     res.render('success')
   })

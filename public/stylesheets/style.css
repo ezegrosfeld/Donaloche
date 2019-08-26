@@ -328,13 +328,17 @@ textarea:focus{
   font-weight: bolder;
 }
 .header{
-  border-radius: 10px;
+  /* border-radius: 10px; */
   padding: 2%;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 .header#h1{
   background-color: #4eff50;
+}
+iframe{
+  width: 560px;
+  height: 315px;
 }
 .header#h2{
   background-color: #64da65;
@@ -374,7 +378,6 @@ textarea:focus{
   width: 300px;
   display: inline-block;
   vertical-align: top;
-  height: 400px;
 }
 .proyects ul{
   width: 100%;
@@ -393,6 +396,11 @@ textarea:focus{
 }
 .data-proj h5{
   color: #4eff50
+}
+.data-proj h1{
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+  color:#313937
 }
 .data-proj h5 span{
   color: #646769
@@ -435,7 +443,7 @@ footer h5{
   font-weight: bold;
 }
 footer{
-  margin-top: 20px;
+  margin-top: 50px;
 }
 select{
   width: 90%;
